@@ -1,0 +1,41 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<h1>Olá, {{ nome }}</h1>
+
+<p>Data atual: {{ data }}</p>
+
+{% if is_logged_in %}
+    <p>Bem-vindo de volta!</p>
+{% else %}
+    <p>Faça login para continuar.</p>
+{% endif %}
+
+{% if role == "admin" %}
+    <p>Você é administrador.</p>
+{% else %}
+    <p>Você é usuário comum.</p>
+{% endif %}
+
+<h2>Produtos</h2>
+
+<table border="1">
+    <tr>
+        <th>Nome</th>
+        <th>Preço</th>
+    </tr>
+
+    {% for p in produtos %}
+    <tr>
+        <td>{{ p.nome }}</td>
+        <td>R$ {{ p.preco }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+
+<a href="{% url 'contato' telefone='999999999' %}">Contato</a>
+
+{% endblock %}
