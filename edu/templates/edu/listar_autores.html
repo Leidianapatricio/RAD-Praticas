@@ -1,0 +1,19 @@
+<h1>Lista de Autores</h1>
+
+<a href="{% url 'criar_autor' %}">Novo Autor</a>
+
+<ul>
+    {% for autor in autores %}
+        <li>
+            {{ autor.nome }}
+
+            <a href="{% url 'editar_autor' autor.id %}">
+                Editar
+            </a>
+
+            <a href="{% url 'excluir_autor' autor.id %}">
+                Excluir
+            </a>
+        </li>
+    {% endfor %}
+</ul>
