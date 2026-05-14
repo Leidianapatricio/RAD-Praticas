@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Autor
 from .forms import AutorForm
+from django.core.paginator import Paginator
+from .models import Livro
 
 
 def listar_autores(request):
@@ -38,3 +40,12 @@ def excluir_autor(request, id):
         return redirect('listar_autores')
 
     return render(request, 'edu/excluir_autor.html', {'autor': autor})
+
+def listar_livros(request):
+    livros = Livro.objects.all().order_by("id")
+
+    paginator = Paginator(livros, 10)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, "edu/listar_livros.html", {"page_obj": page_obj})

@@ -1,0 +1,44 @@
+<h1>Lista de Livros</h1>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>ISBN</th>
+        <th>Título</th>
+        <th>Publicação</th>
+        <th>Preço</th>
+        <th>Estoque</th>
+        <th>Editora</th>
+    </tr>
+
+    {% for livro in page_obj %}
+    <tr>
+        <td>{{ livro.id }}</td>
+        <td>{{ livro.isbn }}</td>
+        <td>{{ livro.titulo }}</td>
+        <td>{{ livro.publicacao }}</td>
+        <td>R$ {{ livro.preco }}</td>
+        <td>{{ livro.estoque }}</td>
+        <td>{{ livro.editora.nome }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+
+<div>
+    {% if page_obj.has_previous %}
+        <a href="?page=1">Primeira</a>
+        <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+    {% endif %}
+
+    <span>
+        Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+    </span>
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Próxima</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">Última</a>
+    {% endif %}
+</div>
+
