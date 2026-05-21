@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Usuário</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-slate-100 flex items-center justify-center px-4">
+
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
+        <h1 class="text-3xl font-bold text-center text-slate-800 mb-6">
+            Cadastro de Usuário
+        </h1>
+
+       <form method="POST" class="space-y-4" autocomplete="off">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">
+                        {{ field.label }}
+                    </label>
+
+                    {{ field }}
+
+                    {% if field.errors %}
+                        <p class="text-sm text-red-600 mt-1">
+                            {{ field.errors|striptags }}
+                        </p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <button type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition">
+                Cadastrar
+            </button>
+        </form>
+
+        <p class="text-center text-sm text-slate-600 mt-6">
+            Já tem uma conta?
+            <a href="{% url 'login_usuario' %}" class="text-blue-600 font-semibold hover:underline">
+                Fazer login
+            </a>
+        </p>
+    </div>
+
+</body>
+</html>
