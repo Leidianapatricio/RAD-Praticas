@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib import messages
 
 from .models import Autor, Livro
 from .forms import AutorForm, LivroForm
@@ -56,26 +57,43 @@ def listar_livros(request):
 
 
 @login_required
+@permission_required("edu.add_livro", raise_exception=True)
 def criar_livro(request):
     form = LivroForm(request.POST or None)
 
     if form.is_valid():
         form.save()
+        messages.success(request, "Livro cadastrado com sucesso!")
         return redirect("listar_livros")
 
     return render(request, "edu/form_livro.html", {"form": form})
 
 
 @login_required
+@permission_required("edu.change_livro", raise_exception=True)
 def editar_livro(request, id):
     livro = get_object_or_404(Livro, id=id)
     form = LivroForm(request.POST or None, instance=livro)
 
     if form.is_valid():
         form.save()
+        messages.success(request, "Livro atualizado com sucesso!")
         return redirect("listar_livros")
 
     return render(request, "edu/form_livro.html", {"form": form})
+
+
+@login_required
+@permission_required("edu.delete_livro", raise_exception=True)
+def excluir_livro(request, id):
+    livro = get_object_or_404(Livro, id=id)
+
+    if request.method == "POST":
+        livro.delete()
+        messages.success(request, "Livro removido com sucesso!")
+        return redirect("listar_livros")
+
+    return render(request, "edu/excluir_livro.html", {"livro": livro})
 
 
 def cadastro_usuario(request):
