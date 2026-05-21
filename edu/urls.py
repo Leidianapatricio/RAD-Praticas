@@ -1,5 +1,10 @@
 from django.urls import path
 from . import views
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+router.register(r"api/autores", views.AutorViewSet)
+router.register(r"api/editoras", views.EditoraViewSet)
 
 urlpatterns = [
     path("autores/", views.listar_autores, name="listar_autores"),
@@ -15,4 +20,8 @@ urlpatterns = [
     path("cadastro/", views.cadastro_usuario, name="cadastro_usuario"),
     path("login/", views.login_usuario, name="login_usuario"),
     path("logout/", views.logout_usuario, name="logout_usuario"),
+    
+    
 ]
+
+urlpatterns += router.urls 

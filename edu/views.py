@@ -9,6 +9,10 @@ from .models import Autor, Livro
 from .forms import AutorForm, LivroForm
 from .forms_auth import CadastroUsuarioForm
 
+from rest_framework import viewsets
+from .models import Editora
+from .serializers import AutorSerializer, EditoraSerializer
+
 
 def listar_autores(request):
     autores = Autor.objects.all()
@@ -129,3 +133,12 @@ def login_usuario(request):
 def logout_usuario(request):
     logout(request)
     return redirect("login_usuario")
+
+class AutorViewSet(viewsets.ModelViewSet):
+    queryset = Autor.objects.all()
+    serializer_class = AutorSerializer
+
+
+class EditoraViewSet(viewsets.ModelViewSet):
+    queryset = Editora.objects.all()
+    serializer_class = EditoraSerializer
