@@ -1,0 +1,115 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-11 22:44+0000\n"
+"PO-Revision-Date: 2026-06-11 22:44+0000\n"
+"Last-Translator: Leidiana Nascimento Patricio\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: edu/templates/edu/listar_livros.html:7
+#: edu/templates/edu/listar_livros.html:19
+msgid "Lista de Livros"
+msgstr "Book List"
+
+#: edu/templates/edu/listar_livros.html:24
+msgid "Usuário logado"
+msgstr "Logged User"
+
+#: edu/templates/edu/listar_livros.html:38
+msgid "Trocar idioma"
+msgstr "Change Language"
+
+#: edu/templates/edu/listar_livros.html:46
+msgid "Novo Livro"
+msgstr "New Book"
+
+#: edu/templates/edu/listar_livros.html:52
+msgid "Sair"
+msgstr "Logout"
+
+#: edu/templates/edu/listar_livros.html:57
+msgid "Entrar"
+msgstr "Login"
+
+#: edu/templates/edu/listar_livros.html:62
+msgid "Cadastrar"
+msgstr "Register"
+
+#: edu/templates/edu/listar_livros.html:74
+msgid "Título"
+msgstr "Title"
+
+#: edu/templates/edu/listar_livros.html:75
+msgid "Publicação"
+msgstr "Publication"
+
+#: edu/templates/edu/listar_livros.html:76
+msgid "Preço"
+msgstr "Price"
+
+#: edu/templates/edu/listar_livros.html:77
+msgid "Estoque"
+msgstr "Stock"
+
+#: edu/templates/edu/listar_livros.html:78
+msgid "Editora"
+msgstr "Publisher"
+
+#: edu/templates/edu/listar_livros.html:79
+msgid "Ações"
+msgstr "Actions"
+
+#: edu/templates/edu/listar_livros.html:99
+msgid "Editar"
+msgstr "Edit"
+
+#: edu/templates/edu/listar_livros.html:106
+msgid "Excluir"
+msgstr "Delete"
+
+#: edu/templates/edu/listar_livros.html:112
+msgid "Sem permissão"
+msgstr "No Permission"
+
+#: edu/templates/edu/listar_livros.html:126
+msgid "Primeira"
+msgstr "First"
+
+#: edu/templates/edu/listar_livros.html:130
+msgid "Anterior"
+msgstr "Previous"
+
+#: edu/templates/edu/listar_livros.html:135
+msgid "Página"
+msgstr "Page"
+
+#: edu/templates/edu/listar_livros.html:135
+msgid "de"
+msgstr "of"
+
+#: edu/templates/edu/listar_livros.html:140
+msgid "Próxima"
+msgstr "Next"
+
+#: edu/templates/edu/listar_livros.html:144
+msgid "Última"
+msgstr "Last"
+
+#: myapp/settings.py:114
+msgid "Português"
+msgstr "Portuguese"
+
+#: myapp/settings.py:115
+msgid "English"
+msgstr "English"
